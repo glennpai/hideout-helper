@@ -1,0 +1,25 @@
+<div class="snack">
+  <textarea matInput #code>{{ data.code ?? '' }}</textarea>
+  <ng-container *ngIf="data.code; else import">
+    <button
+      mat-flat-button
+      matSnackBarAction
+      (click)="data.action()"
+      color="primary">
+      Copy
+    </button>
+  </ng-container>
+  <ng-template #import>
+    <button
+      mat-flat-button
+      matSnackBarAction
+      (click)="data.action(code.value)"
+      color="primary">
+      Import
+    </button>
+  </ng-template>
+</div>
+<mat-progress-bar
+  mode="determinate"
+  [value]="timerIndicator"
+  class="timer"></mat-progress-bar>

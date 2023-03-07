@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  text-align: center;
+  width: 450px;
+}
+
+.actions button {
+  margin: 0 5px;
+}
+
+.item-button {
+  width: 100%;
+}
+
+.complete {
+  color: gray;
+}
+
+mat-expansion-panel-header {
+  line-height: 4em;
+}
+
+mat-panel-title {
+  justify-content: left !important;
+  align-items: center;
+}
+
+mat-panel-description {
+  justify-content: right !important;
+  align-items: center;
+}
+
+.panel {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+mat-list {
+  flex-grow: 1;
+}
+
+.item-complete {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.check {
+  margin-left: 1em;
+}
+
+.tracking-button {
+  margin-right: 1em;
+  background-color: gray;
+  color: black;
+}
+
+.tracking {
+  background-color: green;
+  color: white;
+}
