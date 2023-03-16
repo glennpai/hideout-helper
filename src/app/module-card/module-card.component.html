@@ -32,35 +32,40 @@
           </button>
         </mat-list-item>
       </mat-list>
+    </div>
+
+    <mat-action-row>
+      <div>
+        <button mat-flat-button color="warn" (click)="resetCurrentLevel()">
+          Reset
+        </button>
+      </div>
 
       <div class="panel-controls">
-        <button
-          mat-icon-button
-          (click)="changeLevel('up')"
-          [disabled]="!hasLevelUp">
-          <mat-icon>arrow_upward</mat-icon>
-        </button>
-        <div>{{ module.level + 1 }}</div>
         <button
           mat-icon-button
           (click)="changeLevel('down')"
           [disabled]="!hasLevelDown">
           <mat-icon>arrow_downward</mat-icon>
         </button>
+        <div>{{ module.level + 1 }}</div>
+        <button
+          mat-icon-button
+          (click)="changeLevel('up')"
+          [disabled]="!hasLevelUp">
+          <mat-icon>arrow_upward</mat-icon>
+        </button>
       </div>
-    </div>
 
-    <mat-action-row>
-      <button mat-flat-button color="warn" (click)="resetCurrentLevel()">
-        Reset
-      </button>
-      <button
-        mat-flat-button
-        color="accent"
-        (click)="completeCurrentLevel()"
-        [disabled]="levelComplete">
-        Complete All
-      </button>
+      <div>
+        <button
+          mat-flat-button
+          color="accent"
+          (click)="completeCurrentLevel()"
+          [disabled]="levelComplete">
+          Complete All
+        </button>
+      </div>
     </mat-action-row>
   </mat-expansion-panel>
 </div>

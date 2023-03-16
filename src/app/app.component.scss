@@ -11,18 +11,38 @@
 
 .modules {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   margin-top: 1em;
   justify-items: center;
   gap: 1em;
 }
 
+.logo {
+  h2 {
+    font-size: 1.25em;
+    line-height: 1.25em;
+  }
+  span {
+    font-size: .75em;
+    color: gray;
+  }
+  button {
+    padding: 0 .5em;
+    margin: 0 .5em;
+    line-height: 1em;
+  }
+}
+
+.card {
+  width: 360px;
+}
+
 .sidebar {
-  width: 350px;
+  width: 360px;
 }
 
 .sidebar-content {
-  margin-top: 50px;
+  margin-top: 2em;
 }
 
 .complete {
@@ -39,7 +59,7 @@
 
 .actions {
   > button {
-    margin: 0px 5px 0px 5px;
+    margin: 0 .5em;
   }
 }
 

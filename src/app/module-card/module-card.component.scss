@@ -1,19 +1,14 @@
-.container {
-  display: flex;
-  text-align: center;
-  width: 450px;
+mat-expansion-panel-content {
+  padding: 0px !important;
+  margin: 0px !important;
 }
 
-.actions button {
-  margin: 0 5px;
-}
-
-.item-button {
+mat-action-row {
+  padding: 0px !important;
+  margin: 0px !important;
   width: 100%;
-}
-
-.complete {
-  color: gray;
+  display: flex;
+  justify-content: space-between;
 }
 
 mat-expansion-panel-header {
@@ -30,17 +25,39 @@ mat-panel-description {
   align-items: center;
 }
 
-.panel {
+mat-list {
+  flex-grow: 1;
+}
+
+.container {
+  display: flex;
+  text-align: center;
   width: 100%;
 }
 
-.content {
-  display: flex;
-  flex-direction: row;
+.item-button {
+  padding: 0px !important;
+  flex-grow: 1;
 }
 
-mat-list {
+.complete {
+  color: gray;
+}
+
+.panel-controls {
+  display: flex;
   flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2em;
+  button {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.panel {
+  width: 100%;
 }
 
 .item-complete {
