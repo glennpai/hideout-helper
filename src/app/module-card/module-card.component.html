@@ -1,0 +1,66 @@
+<div class="container" *ngIf="module">
+  <mat-expansion-panel [expanded]="module.expanded" class="panel">
+    <mat-expansion-panel-header (click)="toggleExpanded()" class="panel-header">
+      <mat-panel-title>
+        {{ module.type }}
+        <mat-icon *ngIf="moduleComplete" inline="true" class="check"
+          >check</mat-icon
+        >
+      </mat-panel-title>
+      <mat-panel-description>
+        <button
+          mat-mini-fab
+          class="tracking-button"
+          (click)="toggleTracking(); $event.stopPropagation()"
+          [ngClass]="{ tracking: module.tracking }">
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+        Level {{ module.level + 1 }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="content">
+      <mat-list #items>
+        <mat-list-item *ngFor="let item of module.requirements[module.level]">
+          <button
+            mat-stroked-button
+            (click)="toggleItem(item)"
+            class="item-button">
+            <span [ngClass]="{ 'item-complete': item.qty === 0 }">
+              {{ item.qty | number : '1.0' : 'en-US' }}x {{ item.type }}
+            </span>
+          </button>
+        </mat-list-item>
+      </mat-list>
+
+      <div class="panel-controls">
+        <button
+          mat-icon-button
+          (click)="changeLevel('up')"
+          [disabled]="!hasLevelUp">
+          <mat-icon>arrow_upward</mat-icon>
+        </button>
+        <div>{{ module.level + 1 }}</div>
+        <button
+          mat-icon-button
+          (click)="changeLevel('down')"
+          [disabled]="!hasLevelDown">
+          <mat-icon>arrow_downward</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <mat-action-row>
+      <button mat-flat-button color="warn" (click)="resetCurrentLevel()">
+        Reset
+      </button>
+      <button
+        mat-flat-button
+        color="accent"
+        (click)="completeCurrentLevel()"
+        [disabled]="levelComplete">
+        Complete All
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</div>

@@ -1,0 +1,17 @@
+.snack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+textarea {
+  margin-right: 1em;
+  resize: none;
+}
+
+.timer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
