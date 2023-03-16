@@ -6,6 +6,7 @@ import { SaveloadSnackbarComponent } from './saveload-snackbar/saveload-snackbar
 import { ModuleService } from './services/module.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+import packageJson from '../../package.json';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
   ) {}
   modules!: Module[];
   shoppingList!: Array<[string, number]>;
+  version = packageJson.version;
 
   ngOnInit() {
     this.moduleService.modules.subscribe((res) => (this.modules = res));

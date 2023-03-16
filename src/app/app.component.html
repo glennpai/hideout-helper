@@ -1,6 +1,12 @@
 <div class="container">
   <mat-toolbar>
-    <span>Hideout Helper</span>
+    <div class="logo">
+      <h2>Hideout Helper</h2>
+      <div>
+        <span>{{ version }}</span>
+        <button mat-flat-button (click)="openInfo()">What's this?</button>
+      </div>
+    </div>
     <span class="spacer"></span>
     <div class="actions">
       <button mat-flat-button [matMenuTriggerFor]="saveMenu">Save</button>
@@ -49,7 +55,6 @@
           </mat-list>
         </ng-template>
         <div class="sidebar-buttons">
-          <button mat-stroked-button (click)="openInfo()">What's this?</button>
           <button mat-stroked-button color="warn" (click)="resetAll()">
             Reset All
           </button>
