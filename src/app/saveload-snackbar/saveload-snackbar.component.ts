@@ -1,12 +1,14 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+import { MAT_SNACK_BAR_DATA, MatSnackBarAction } from '@angular/material/snack-bar';
 import { interval } from 'rxjs';
+import { MatButton } from '@angular/material/button';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
     selector: 'app-saveload-snackbar',
     templateUrl: './saveload-snackbar.component.html',
     styleUrls: ['./saveload-snackbar.component.scss'],
-    standalone: false
+    imports: [MatButton, MatSnackBarAction, MatProgressBar]
 })
 export class SaveloadSnackbarComponent {
   timerIndicator = 100;

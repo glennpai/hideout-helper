@@ -1,18 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { tap } from 'rxjs';
 import { Module } from 'src/shared/Modules';
 import { SaveloadSnackbarComponent } from './saveload-snackbar/saveload-snackbar.component';
 import { ModuleService } from './services/module.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import packageJson from '../../package.json';
+import { CommonModule } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { ModuleCardComponent } from './module-card/module-card.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatDividerModule,
+        MatListModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        ModuleCardComponent,
+    ],
 })
 export class AppComponent implements OnInit {
   constructor(

@@ -1,12 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { Item, Level, Module } from 'src/shared/Modules';
 import { ModuleService } from '../services/module.service';
+import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatExpansionPanelDescription, MatExpansionPanelActionRow } from '@angular/material/expansion';
+import { MatIcon } from '@angular/material/icon';
+import { MatMiniFabButton, MatButton, MatIconButton } from '@angular/material/button';
+import { NgClass, DecimalPipe } from '@angular/common';
+import { MatList, MatListItem } from '@angular/material/list';
 
 @Component({
     selector: 'app-module-card',
     templateUrl: './module-card.component.html',
     styleUrls: ['./module-card.component.scss'],
-    standalone: false
+    imports: [MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatIcon, MatExpansionPanelDescription, MatMiniFabButton, NgClass, MatList, MatListItem, MatButton, MatExpansionPanelActionRow, MatIconButton, DecimalPipe]
 })
 export class ModuleCardComponent {
   @Input() module!: Module;
