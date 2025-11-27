@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { tap } from 'rxjs';
 import { Module } from 'src/shared/Modules';
 import { SaveloadSnackbarComponent } from './saveload-snackbar/saveload-snackbar.component';
 import { ModuleService } from './services/module.service';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import packageJson from '../../package.json';
 
