@@ -3,9 +3,10 @@ import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { interval } from 'rxjs';
 
 @Component({
-  selector: 'app-saveload-snackbar',
-  templateUrl: './saveload-snackbar.component.html',
-  styleUrls: ['./saveload-snackbar.component.scss'],
+    selector: 'app-saveload-snackbar',
+    templateUrl: './saveload-snackbar.component.html',
+    styleUrls: ['./saveload-snackbar.component.scss'],
+    standalone: false
 })
 export class SaveloadSnackbarComponent {
   timerIndicator = 100;

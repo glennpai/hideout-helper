@@ -3,9 +3,10 @@ import { Item, Level, Module } from 'src/shared/Modules';
 import { ModuleService } from '../services/module.service';
 
 @Component({
-  selector: 'app-module-card',
-  templateUrl: './module-card.component.html',
-  styleUrls: ['./module-card.component.scss'],
+    selector: 'app-module-card',
+    templateUrl: './module-card.component.html',
+    styleUrls: ['./module-card.component.scss'],
+    standalone: false
 })
 export class ModuleCardComponent {
   @Input() module!: Module;
