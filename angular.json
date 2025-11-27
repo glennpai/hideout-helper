@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "hideout-helper:build:production"
+              "buildTarget": "hideout-helper:build:production"
             },
             "development": {
-              "browserTarget": "hideout-helper:build:development"
+              "buildTarget": "hideout-helper:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hideout-helper:build"
+            "buildTarget": "hideout-helper:build"
           }
         },
         "test": {
