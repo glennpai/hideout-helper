@@ -28,9 +28,11 @@
 
   <mat-drawer-container class="content" autosize>
     <div class="modules">
-      <div *ngFor="let module of modules" class="card">
-        <app-module-card [module]="module"></app-module-card>
-      </div>
+      @for (module of modules; track module) {
+        <div class="card">
+          <app-module-card [module]="module"></app-module-card>
+        </div>
+      }
     </div>
 
     <mat-drawer #drawer class="sidebar" position="end" mode="side">
@@ -39,21 +41,22 @@
           <h2>Shopping List</h2>
           <mat-divider></mat-divider>
         </div>
-        <ng-container *ngIf="!shoppingList.length; else displayList">
+        @if (!shoppingList.length) {
           <div class="info-text">
             Looks like you're not tracking any items. Add a module to your cart to
             begin tracking.
           </div>
-        </ng-container>
-        <ng-template #displayList>
+        } @else {
           <mat-list>
-            <mat-list-item *ngFor="let item of shoppingList">
-              <span [ngClass]="{ 'item-complete': item[1] === 0 }">
-                {{ item[1] | number : '1.0' : 'en-US' }}x {{ item[0] }}
-              </span>
-            </mat-list-item>
+            @for (item of shoppingList; track item) {
+              <mat-list-item>
+                <span [ngClass]="{ 'item-complete': item[1] === 0 }">
+                  {{ item[1] | number : '1.0' : 'en-US' }}x {{ item[0] }}
+                </span>
+              </mat-list-item>
+            }
           </mat-list>
-        </ng-template>
+        }
         <div class="sidebar-buttons">
           <button mat-stroked-button color="warn" (click)="resetAll()">
             Reset All
