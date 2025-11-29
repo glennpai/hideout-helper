@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Item, Level, Module } from 'src/shared/Modules';
 import { ModuleService } from '../services/module.service';
 import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatExpansionPanelDescription, MatExpansionPanelActionRow } from '@angular/material/expansion';
@@ -14,24 +14,25 @@ import { MatList, MatListItem } from '@angular/material/list';
     imports: [MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatIcon, MatExpansionPanelDescription, MatMiniFabButton, NgClass, MatList, MatListItem, MatButton, MatExpansionPanelActionRow, MatIconButton, DecimalPipe]
 })
 export class ModuleCardComponent {
-  @Input() module!: Module;
+  private moduleService = inject(ModuleService);
+  module = input.required<Module>();
 
-  constructor(private moduleService: ModuleService) {}
+  constructor() {}
 
   get level(): number {
-    return this.module.level;
+    return this.module().level;
   }
 
   get currentRequirements() {
-    return this.module.requirements[this.level];
+    return this.module().requirements[this.level];
   }
 
   get hasLevelUp() {
-    return !!this.module.requirements[this.level + 1];
+    return !!this.module().requirements[this.level + 1];
   }
 
   get hasLevelDown() {
-    return !!this.module.requirements[this.level - 1];
+    return !!this.module().requirements[this.level - 1];
   }
 
   get levelComplete() {
@@ -40,7 +41,7 @@ export class ModuleCardComponent {
 
   get moduleComplete() {
     return (
-      this.module.level === this.module.requirements.length - 1 &&
+      this.module().level === this.module().requirements.length - 1 &&
       this.levelComplete
     );
   }
@@ -58,7 +59,7 @@ export class ModuleCardComponent {
       ? this.resetItem(item)
       : this.completeItem(item);
 
-    this.moduleService.setModule(this.module);
+    this.moduleService.setModule(this.module());
   }
 
   completeItem(item: Item) {
@@ -74,31 +75,31 @@ export class ModuleCardComponent {
 
   completeCurrentLevel() {
     this.currentRequirements.forEach((item) => this.completeItem(item));
-    this.moduleService.setModule(this.module);
+    this.moduleService.setModule(this.module());
   }
 
   resetCurrentLevel() {
     this.currentRequirements.forEach((item) => this.resetItem(item));
-    this.moduleService.setModule(this.module);
+    this.moduleService.setModule(this.module());
   }
 
   changeLevel(direction: 'up' | 'down') {
     if (direction === 'up' && this.hasLevelUp) {
-      this.module.level = (this.module.level + 1) as Level;
+      this.module().level = (this.module().level + 1) as Level;
     } else if (direction === 'down' && this.hasLevelDown) {
-      this.module.level = (this.module.level - 1) as Level;
+      this.module().level = (this.module().level - 1) as Level;
     }
 
-    this.moduleService.setModule(this.module);
+    this.moduleService.setModule(this.module());
   }
 
   toggleTracking() {
-    this.module.tracking = !this.module.tracking;
-    this.moduleService.setModule(this.module);
+    this.module().tracking = !this.module().tracking;
+    this.moduleService.setModule(this.module());
   }
 
   toggleExpanded() {
-    this.module.expanded = !this.module.expanded;
-    this.moduleService.setModule(this.module);
+    this.module().expanded = !this.module().expanded;
+    this.moduleService.setModule(this.module());
   }
 }

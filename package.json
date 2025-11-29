@@ -1,6 +1,6 @@
 {
   "name": "hideout-helper",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,8 +9,7 @@
     "deploy": "npm run build-prod && angular-cli-ghpages --dir=dist/hideout-helper",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint",
-    "reformat": "prettier --write ./src"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

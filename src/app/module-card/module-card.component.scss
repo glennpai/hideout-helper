@@ -12,6 +12,8 @@ mat-action-row {
 }
 
 mat-expansion-panel-header {
+  display: flex;
+  flex-grow: 1;
   line-height: 4em;
 }
 
@@ -21,6 +23,7 @@ mat-panel-title {
 }
 
 mat-panel-description {
+  flex-grow: 1;
   justify-content: right !important;
   align-items: center;
 }
@@ -37,7 +40,7 @@ mat-list {
 }
 
 .item-button {
-  padding: 0px !important;
+  padding: 10px !important;
   flex-grow: 1;
 }
 

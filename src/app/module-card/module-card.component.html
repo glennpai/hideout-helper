@@ -1,29 +1,29 @@
-@if (module) {
+@if (module()) {
   <div class="container">
-    <mat-expansion-panel [expanded]="module.expanded" class="panel">
+    <mat-expansion-panel [expanded]="module().expanded" class="panel">
       <mat-expansion-panel-header (click)="toggleExpanded()" class="panel-header">
         <mat-panel-title>
-          {{ module.type }}
+          {{ module().type }}
           @if (moduleComplete) {
             <mat-icon inline="true" class="check"
               >check</mat-icon
               >
             }
           </mat-panel-title>
-          <mat-panel-description>
+          <mat-panel-description class="panel-description">
             <button
               mat-mini-fab
               class="tracking-button"
               (click)="toggleTracking(); $event.stopPropagation()"
-              [ngClass]="{ tracking: module.tracking }">
+              [ngClass]="{ tracking: module().tracking }">
               <mat-icon>add_shopping_cart</mat-icon>
             </button>
-            Level {{ module.level + 1 }}
+            Level {{ module().level + 1 }}
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="content">
           <mat-list #items>
-            @for (item of module.requirements[module.level]; track item) {
+            @for (item of module().requirements[module().level]; track item) {
               <mat-list-item>
                 <button
                   mat-stroked-button
@@ -50,7 +50,7 @@
               [disabled]="!hasLevelDown">
               <mat-icon>arrow_downward</mat-icon>
             </button>
-            <div>{{ module.level + 1 }}</div>
+            <div>{{ module().level + 1 }}</div>
             <button
               mat-icon-button
               (click)="changeLevel('up')"

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { tap } from 'rxjs';
 import { Module } from 'src/shared/Modules';
@@ -37,11 +37,12 @@ import { ModuleCardComponent } from './module-card/module-card.component';
     ],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private moduleService: ModuleService,
-    private snackBar: MatSnackBar,
-    private dialog: MatDialog
-  ) {}
+  private moduleService = inject(ModuleService);
+  private snackBar = inject(MatSnackBar);
+  private dialog = inject(MatDialog);
+
+  constructor() {}
+
   modules!: Module[];
   shoppingList!: Array<[string, number]>;
   version = packageJson.version;
